@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      .calculator {
+        text-align: center;
+        background-color: rgb(16, 163, 255);
+        border-radius: 25px;
+        border: 2px solid black;
+        width: 200px;
+        margin: 0 auto;
+      }
+
+      button {
+        background-color: rgb(23, 110, 209);
+        border-radius: 10px;
+        width: 50px;
+        height: 50px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        line-height: 1.6;
+        border: none;
+      }
+      #display {
+        padding: 5px;
+        margin-top: 9px;
+        border-radius: 8px;
+        height: 31px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <input type="text" id="display" readonly />
+      <br />
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="appendOperator('+')">+</button>
+      <button onclick="appendOperator('-')">-</button>
+      <br />
+      <button onclick="appendNumber(7)">7</button>
+      <button onclick="appendNumber(8)">8</button>
+      <button onclick="appendNumber(9)">9</button>
+      <br />
+      <button onclick="appendNumber(4)">4</button>
+      <button onclick="appendNumber(5)">5</button>
+      <button onclick="appendNumber(6)">6</button>
+      <br />
+      <button onclick="appendNumber(1)">1</button>
+      <button onclick="appendNumber(2)">2</button>
+      <button onclick="appendNumber(3)">3</button>
+      <br />
+      <button onclick="appendNumber(0)">0</button>
+      <button onclick="appendOperator('.')">.</button>
+      <button onclick="calculateResult()">=</button>
+    </div>
+    <script>
+      let display = document.getElementById("display");
+      let equation = "";
+      let operator = "";
+
+      function appendNumber(number) {
+        equation += number;
+        display.value = equation;
+      }
+
+      function appendOperator(newOperator) {
+        if (operator === "" && equation === "") {
+          operator = newOperator;
+        } else if (equation !== "") {
+          equation += operator + newOperator;
+          operator = newOperator;
+        }
+        display.value = equation;
+      }
+
+      function calculateResult() {
+        equation = equation.replace(/[*]{2}/g, "*");
+        equation = equation.replace(/[-]{2}/g, "-");
+        display.value = eval(equation);
+        equation = display.value;
+      }
+
+      function clearDisplay() {
+        equation = "";
+        operator = "";
+        display.value = equation;
+      }
+    </script>
+  </body>
+</html>
