@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <form id="quiz-form">
+        <h2>Quiz Title</h2>
+        <input type="text" id="quiz-title" name="quiz-title" required>
+         
+        <h2>Question 1</h2>
+        <input type="text" id="question-1" name="question-1" required>
+         
+        <div class="option-container">
+           <h3>Option A</h3>
+           <input type="text" id="option-a-1" name="option-a-1" required>
+        </div>
+         
+        <div class="option-container">
+           <h3>Option B</h3>
+           <input type="text" id="option-b-1" name="option-b-1" required>
+        </div>
+         
+        <div class="option-container">
+           <h3>Option C</h3>
+           <input type="text" id="option-c-1" name="option-c-1" required>
+        </div>
+         
+        <div class="option-container">
+           <h3>Option D</h3>
+           <input type="text" id="option-d-1" name="option-d-1" required>
+        </div>
+         
+        <div class="option-container">
+           <h3>Correct Answer</h3>
+           <select id="correct-answer-1" name="correct-answer-1" required>
+             <option value="a">A</option>
+             <option value="b">B</option>
+             <option value="c">C</option>
+             <option value="d">D</option>
+           </select>
+        </div>
+         
+        <button type="button" id="add-question">Add Question</button>
+        <button type="submit">Submit Quiz</button>
+       </form>
+       <script src="script.js"></script>
+</body>
+</html>
